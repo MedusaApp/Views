@@ -1,0 +1,27 @@
+{
+    "name": "medusa-app/personality-views",
+    "description": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Weiner",
+            "email": "david.l.weiner30030@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "illuminate/support": "5.8.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "MedusaApp\\PersonalityViews\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "PersonalityViews\\ServiceProvider"
+            ]
+        }
+    }
+}

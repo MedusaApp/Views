@@ -1,5 +1,5 @@
 {
-    "name": "medusa-app/personality-views",
+    "name": "medusaapp/views",
     "description": "",
     "license": "MIT",
     "authors": [
@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "MedusaApp\\PersonalityViews\\": "src/"
+            "PersonalityViews\\": "src/"
         }
     },
     "extra": {

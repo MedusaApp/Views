@@ -249,7 +249,6 @@
             $select_country = $('#country').selectize({
                 render: {
                     option: function(data, escape) {
-                        console.log(data.value);
                         return '<div class="option"><span class="flag-icon flag-icon-' + String(escape(data.value)).toLowerCase() + '"></span> ' + escape(data.text) + '</div>';
                     },
                     item: function(data, escape) {
@@ -261,23 +260,7 @@
                     select_state.clearOptions();
                     select_state.load(function(callback) {
                         xhr && xhr.abort();
-                        xhr = $.ajax({
-                            url: '/api/v1/states/' + value,
-                            success: function(results) {
-                                if (results.length === 0) {
-                                    select_state.settings.placeholder = "No state/provinces found";
-                                    select_state.updatePlaceholder()
-                                } else {
-                                    select_state.settings.placeholder = "Select a state or province";
-                                    select_state.updatePlaceholder()
-                                    callback(results);
-                                    select_state.enable();
-                                }
-                            },
-                            error: function() {
-                                callback();
-                            }
-                        })
+                        xhr = getStates(value);
                     });
                 }
             });
@@ -291,6 +274,27 @@
             select_country  = $select_country[0].selectize;
             select_state = $select_state[0].selectize;
             select_state.disable();
+
+            var oldState = "{{ old('state_province', null) }}";
+
+            if (!oldState) {
+
+            }
+
+            function getStates(country) {
+                return $.ajax({
+                    url: '/api/v1/states/' + country,
+                    success: function(results) {
+                        select_state.settings.placeholder = "Start typing to find your state or province";
+                        select_state.updatePlaceholder()
+                        callback(results);
+                        select_state.enable();
+                    },
+                    error: function() {
+                        callback();
+                    }
+                })
+            }
         });
     </script>
 @endsection

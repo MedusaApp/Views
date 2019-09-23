@@ -147,7 +147,7 @@
                                         <label for="state_province" class="text-md-left">{{__('State/Province')}}</label>
 
                                             <select class="form-control @error('state_province') is-invalid @enderror" id="state_province" name="state_province" tabindex="8">
-                                                <option value="">{{__('Start typing to find your state or province')}}</option>
+                                                <option value="">{{__('Start typing to find or add your state/province')}}</option>
                                             </select>
 
                                         @error('state_province')
@@ -280,19 +280,19 @@
                     xhr && xhr.abort();
                     xhr = getStates(select_country.getValue(), callback);
                 });
-
-                select_state.setValue(oldState);
-                select_state.enable();
             }
 
             function getStates(country, callback) {
                 return $.ajax({
                     url: '/api/v1/states/' + country,
                     success: function(results) {
-                        select_state.settings.placeholder = "Start typing to find your state or province";
+                        select_state.settings.placeholder = "Start typing to find or add your state/province";
                         select_state.updatePlaceholder()
                         callback(results);
                         select_state.enable();
+                        if (oldstate) {
+                            select_state.setValue(oldState);
+                        }
                     },
                     error: function() {
                         callback();

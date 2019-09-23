@@ -145,14 +145,11 @@
                                 <div class="row">
                                     <div class="col-md-6 form-group">
                                         <label for="state_province" class="text-md-left">{{__('State/Province')}}</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend align-middle">
-                                                <span class="input-group-text fas fa-lg fa-asterisk text-info"></span>
-                                            </div>
-                                            <select class="form-control @error('state_province') is-invalid @enderror" id="state_province" name="state_province" required tabindex="8">
-                                                <option value="">{{__('Select a state or province')}}</option>
+
+                                            <select class="form-control @error('state_province') is-invalid @enderror" id="state_province" name="state_province" tabindex="8">
+                                                <option value="">{{__('Start typing to find your state or province')}}</option>
                                             </select>
-                                        </div>
+
                                         @error('state_province')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -278,7 +275,14 @@
             var oldState = "{{ old('state_province', null) }}";
 
             if (!oldState) {
+                select_state.clearOptions();
+                select_state.load(function(callback) {
+                    xhr && xhr.abort();
+                    xhr = getStates(select_country.getValue(), callback);
+                });
 
+                select_state.setValue(oldState);
+                select_state.enable();
             }
 
             function getStates(country, callback) {

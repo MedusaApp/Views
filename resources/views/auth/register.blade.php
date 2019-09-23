@@ -290,6 +290,7 @@
                         select_state.updatePlaceholder()
                         callback(results);
                         select_state.enable();
+                        var oldState = "{{ old('state_province', null) }}";
                         if (oldstate) {
                             select_state.setValue(oldState);
                         }

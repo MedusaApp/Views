@@ -260,7 +260,7 @@
                     select_state.clearOptions();
                     select_state.load(function(callback) {
                         xhr && xhr.abort();
-                        xhr = getStates(value);
+                        xhr = getStates(value, callback);
                     });
                 }
             });
@@ -281,7 +281,7 @@
 
             }
 
-            function getStates(country) {
+            function getStates(country, callback) {
                 return $.ajax({
                     url: '/api/v1/states/' + country,
                     success: function(results) {

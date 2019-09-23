@@ -274,7 +274,7 @@
 
             var oldState = "{{ old('state_province', null) }}";
 
-            if (!oldState) {
+            if (oldState) {
                 select_state.clearOptions();
                 select_state.load(function(callback) {
                     xhr && xhr.abort();

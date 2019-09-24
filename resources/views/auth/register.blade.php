@@ -272,9 +272,9 @@
             select_state = $select_state[0].selectize;
             select_state.disable();
 
-            var oldState = "{{ old('state_province', null) }}";
+            var oldState = "{{ old('state_province', '') }}";
 
-            if (oldState) {
+            if ($.trim(oldState).length) {
                 select_state.clearOptions();
                 select_state.load(function(callback) {
                     xhr && xhr.abort();
@@ -290,8 +290,8 @@
                         select_state.updatePlaceholder()
                         callback(results);
                         select_state.enable();
-                        var oldState = "{{ old('state_province', null) }}";
-                        if (oldstate) {
+                        var oldState = "{{ old('state_province', '') }}";
+                        if ($.trim(oldState).length) {
                             select_state.setValue(oldState);
                         }
                     },

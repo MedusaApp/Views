@@ -16,12 +16,12 @@
                                     <div class="input-group-prepend align-middle">
                                         <span class="input-group-text fas fa-lg fa-asterisk text-info"></span>
                                     </div>
-                                    <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus tabindex="1">
+                                    <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="given-name" autofocus tabindex="1">
                                 </div>
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="middle_name" class="text-md-left">{{__('Middle Name')}}</label>
-                                <input id="middle_name" type="text" class="form-control @error('middle_name') is-invalid @enderror" name="middle_name" value="{{ old('middle_name') }}" autocomplete="middle_name" autofocus tabindex="2">
+                                <input id="middle_name" type="text" class="form-control @error('middle_name') is-invalid @enderror" name="middle_name" value="{{ old('middle_name') }}" autocomplete="additional-name" autofocus tabindex="2">
                             </div>
                             <div class="col-md-4 form-group">
                                 <label for="last_name" class="text-md-left">{{__('Last Name')}}</label>
@@ -29,7 +29,7 @@
                                     <div class="input-group-prepend align-middle">
                                         <span class="input-group-text fas fa-lg fa-asterisk text-info"></span>
                                     </div>
-                                <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus tabindex="3">
+                                <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="family-name" autofocus tabindex="3">
                                 </div>
                             </div>
                             <div class="col-md-1 form-group">
@@ -39,17 +39,17 @@
                         </div>
                         <div class="row">
                             @error('first_name')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="invalid-feedback d-block" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                             @enderror
                             @error('middle_name')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="invalid-feedback d-block" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                             @enderror
                             @error('last_name')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="invalid-feedback d-block" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                             @enderror
@@ -62,11 +62,11 @@
                                             <div class="input-group-prepend align-middle">
                                                 <span class="input-group-text fas fa-lg fa-asterisk text-info"></span>
                                             </div>
-                                            <input id="address_1" type="text" class="form-control @error('address_1') is-invalid @enderror" name="address_1" value="{{ old('address_1') }}" required autocomplete="address_1" tabindex="5">
+                                            <input id="address_1" type="text" class="form-control @error('address_1') is-invalid @enderror" name="address_1" value="{{ old('address_1') }}" required autocomplete="address-line1" tabindex="5">
                                         </div>
 
                                         @error('address_1')
-                                            <span class="invalid-feedback" role="alert">
+                                            <span class="invalid-feedback d-block" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
@@ -74,9 +74,9 @@
 
                                     <div class="form-group col-md-6">
                                         <label for="telephone" class="text-md-left">{{__('Telephone')}}</label>
-                                        <input id="telephone" type="text" class="form-control @error('telephone') is-invalid @enderror" name="telephone" value="{{ old('telephone') }}" autocomplete="telephone" autofocus tabindex="11">
+                                        <input id="telephone" type="text" class="form-control @error('telephone') is-invalid @enderror" name="telephone" value="{{ old('telephone') }}" autocomplete="tel" autofocus tabindex="11">
                                         @error('telephone')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback d-block" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                         @enderror
@@ -86,7 +86,7 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="address_2">{{ __('Address Line 2') }}</label>
-                                        <input id="address_2" type="text" class="form-control" name="address_2" value="{{ old('address_2') }}" autocomplete="address_2" tabindex="6">
+                                        <input id="address_2" type="text" class="form-control" name="address_2" value="{{ old('address_2') }}" autocomplete="address-line2" tabindex="6">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="dob" class="text-md-left">{{__('Date of Birth')}}</label>
@@ -94,10 +94,10 @@
                                             <div class="input-group-prepend align-middle">
                                                 <span class="input-group-text fas fa-lg fa-asterisk text-info"></span>
                                             </div>
-                                            <input id="dob" type="date" class="form-control @error('dob') is-invalid @enderror" name="dob" value="{{ old('dob') }}" required autocomplete="dob" autofocus tabindex="12">
+                                            <input id="dob" type="date" class="form-control @error('dob') is-invalid @enderror" name="dob" value="{{ old('dob') }}" required autocomplete="bday" autofocus tabindex="12">
                                         </div>
                                         @error('dob')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback d-block" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                         @enderror
@@ -120,7 +120,7 @@
                                         </div>
 
                                         @error('country')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback d-block" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
@@ -135,7 +135,7 @@
                                         </div>
 
                                         @error('email')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback d-block" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
@@ -151,7 +151,7 @@
                                             </select>
 
                                         @error('state_province')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback d-block" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
@@ -162,11 +162,14 @@
                                             <div class="input-group-prepend align-middle">
                                                 <span class="input-group-text fas fa-lg fa-asterisk text-info"></span>
                                             </div>
-                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" tabindex="14">
+                                            <input id="password" type="password" class="show-hide form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" tabindex="14">
+                                            <div class="input-group-append show-hide">
+                                                <span class="input-group-text"><span class="fas fa-eye-slash" aria-hidden="true"></span></span>
+                                            </div>
                                         </div>
 
                                         @error('password')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback d-block" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
@@ -180,10 +183,10 @@
                                             <div class="input-group-prepend align-middle">
                                                 <span class="input-group-text fas fa-lg fa-asterisk text-info"></span>
                                             </div>
-                                            <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}" required autocomplete="city" autofocus tabindex="9">
+                                            <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}" required autocomplete="address-level2" autofocus tabindex="9">
                                         </div>
                                         @error('city')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback d-block" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
@@ -195,6 +198,9 @@
                                                 <span class="input-group-text fas fa-lg fa-asterisk text-info"></span>
                                             </div>
                                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" tabindex="15">
+                                            <div class="input-group-append show-hide">
+                                                <span class="input-group-text"><span class="fas fa-eye-slash" aria-hidden="true"></span></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -209,7 +215,7 @@
                                             <input id="postal_code" type="text" class="form-control @error('postal_code') is-invalid @enderror" name="postal_code" value="{{ old('postal_code') }}" required autocomplete="postal_code" autofocus tabindex="10">
                                         </div>
                                     @error('postal_code')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback d-block" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
@@ -299,7 +305,20 @@
                         callback();
                     }
                 })
-            }
+            };
+
+            $(".show-hide").on('click', function(event) {
+                event.preventDefault();
+                if($( this ).prev().attr("type") === "text"){
+                    $( this).prev().attr('type', 'password');
+                    $( this ).find(".fas").addClass( "fa-eye-slash" );
+                    $( this ).find(".fas").removeClass( "fa-eye" );
+                }else if($( this ).prev().attr("type") === "password"){
+                    $( this).prev().attr('type', 'text');
+                    $( this ).find(".fas").removeClass( "fa-eye-slash" );
+                    $( this ).find(".fas").addClass( "fa-eye" );
+                }
+            });
         });
     </script>
 @endsection

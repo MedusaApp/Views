@@ -21,5 +21,8 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     public function boot()
     {
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'personality');
+        $this->publishes([
+            __DIR__ . '/../resources/lang/en' => resource_path('/lang/vendor/cookieConsent/en'),
+        ], 'core.lang');
     }
 }

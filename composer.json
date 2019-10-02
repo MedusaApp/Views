@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": ">=7.1.0",
-        "illuminate/support": "6.0.*",
+        "illuminate/support": "^6.0",
         "spatie/laravel-cookie-consent": "2.9.*",
         "laravelcollective/html": "^6.0"
     },

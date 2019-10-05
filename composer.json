@@ -1,7 +1,7 @@
 {
     "name": "medusaapp/views",
     "description": "",
-    "license": "GNU LGPL v3",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "David Weiner",

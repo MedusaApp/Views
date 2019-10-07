@@ -242,7 +242,7 @@
     </div>
 </div>
 @endsection
-@section('footer')
+@push('scripts')
     <script type="text/javascript">
         $(function(){
             var xhr;
@@ -321,4 +321,4 @@
             });
         });
     </script>
-@endsection
+@endpush

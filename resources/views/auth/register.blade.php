@@ -242,7 +242,7 @@
     </div>
 </div>
 @endsection
-@push('scripts')
+@push('js')
     <script type="text/javascript">
         $(function(){
             var xhr;

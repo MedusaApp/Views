@@ -1,5 +1,13 @@
 @include('cookieConsent::index')
 
+@push('js')
+    <script type="text/javascript">
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+@endpush
+
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
@@ -30,20 +38,27 @@
                         </li>
                     @endif
                 @else
+                    @if (Auth::user()->isAn('admin'))
+                        <li class="nav-item dropdown">
+                            <a id="adminMenu" class="nav-link dropdown-toggle" href="#" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><span
+                                        class="fas fa-tools" data-toggle="tooltip" data-placement="bottom"
+                                        title="Admin Menu"></span> <span class="caret"></span></a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminMenu">
+                                <a class="dropdown-item"
+                                   href="{{ route('admin.pending') }}">{{ __('Approve Memberships') }}</a>
+                            </div>
+                        </li>
+                    @endif
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 
-                            {{ Auth::user()->first_name }} <span class="fas fa-user-circle"></span><span class="caret"></span>
+                            {{ Auth::user()->first_name }} <span class="fas fa-user-circle"></span><span
+                                    class="caret"></span>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            @if (Auth::user()->isAn('admin'))
-                                <span class="dropdown-item-text">Admin Menu</span>
-                                <hr>
-                                <a class="dropdown-item" href="{{ route('admin.pending') }}">{{ __('Approve Memberships') }}</a>
-                                <hr>
-                            @endif
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
